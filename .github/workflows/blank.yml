@@ -113,7 +113,7 @@ jobs:
             zlib \
             zstd
 
-          sudo sed -i -e 's|-O2|-Os|' \
+          sudo sed -i -e 's|-O2|-Oz|' \
             -e 's|DEBUG_CFLAGS="-g"|DEBUG_CFLAGS="-g0"|' \
             -e 's|-fno-omit-frame-pointer|-fomit-frame-pointer|' \
             -e 's|-mno-omit-leaf-frame-pointer||' \
