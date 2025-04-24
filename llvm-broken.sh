@@ -35,6 +35,7 @@ sed -i -e 's/-g1/-g0/' \
 	-e 's|-DLLVM_ENABLE_CURL=ON|-DLLVM_ENABLE_CURL=OFF|' \
 	-e "s|-DLLVM_BUILD_DOCS=ON|-DLLVM_TARGETS_TO_BUILD=\"${TARGETS_TO_BUILD}\"|" \
 	-e 's|-DLLVM_ENABLE_SPHINX=ON|-DLLVM_ENABLE_SPHINX=OFF|' \
+	-e '/LLVMgold.so/d' \
 	-e 's|rm -r|#rm -r|' ./PKGBUILD
 
 # disable test
