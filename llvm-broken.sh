@@ -22,10 +22,13 @@ esac
 git clone https://gitlab.archlinux.org/archlinux/packaging/packages/llvm llvm
 cd ./llvm
 
+sed -i -e 's|-Os|-Oz|' /etc/makepkg.conf
+
 sed -i -e 's/-g1/-g0/' \
 	-e "s/x86_64/${ARCH}/" \
 	-e 's|-DCMAKE_BUILD_TYPE=Release|-DCMAKE_BUILD_TYPE=MinSizeRel|' \
 	-e 's|-DLLVM_BUILD_TESTS=ON|-DLLVM_BUILD_TESTS=OFF -DLLVM_ENABLE_LIBXML2=OFF -DLLVM_ENABLE_ZSTD=OFF -DLLVM_ENABLE_BINDINGS=OFF|' \
+	-e 's|-DLLVM_ENABLE_RTTI=ON|-DLLVM_ENABLE_RTTI=OFF|' \
 	-e 's|-DLLVM_ENABLE_CURL=ON|-DLLVM_ENABLE_CURL=OFF|' \
 	-e "s|-DLLVM_BUILD_DOCS=ON|-DLLVM_TARGETS_TO_BUILD=\"${TARGETS_TO_BUILD}\"|" \
 	-e 's|-DLLVM_ENABLE_SPHINX=ON|-DLLVM_ENABLE_SPHINX=OFF|' \
