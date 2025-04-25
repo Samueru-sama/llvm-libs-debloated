@@ -76,6 +76,7 @@ sed -i -e "s/x86_64/${ARCH}/" ./PKGBUILD
 sed -i -e 's/r300,//' \
 	-e 's/svga,//' \
 	-e 's/softpipe,//' \
+	-e 's/valgrind=enabled/valgrind=disabled/' \
 	-e 's/gallium-nine=true/gallium-nine=false/' \
 	-e 's/-g1/-g0 -Os/g' ./PKGBUILD
 
