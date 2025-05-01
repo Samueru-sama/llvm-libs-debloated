@@ -4,7 +4,7 @@ set -ex
 
 ARCH="$(uname -m)"
 
-git clone https://gitlab.archlinux.org/archlinux/packaging/packages/qt6-base qt6-base
+git clone https://gitea.artixlinux.org/packages/qt6-base.git qt6-base
 cd ./qt6-base
 
 # remove the line that enables icu support
