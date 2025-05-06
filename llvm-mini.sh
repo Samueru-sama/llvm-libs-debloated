@@ -6,11 +6,11 @@ ARCH="$(uname -m)"
 
 case "${ARCH}" in
 "x86_64")
-	TARGETS_TO_BUILD="X86;AArch64;PowerPC;AMDGPU;BPF"
+	TARGETS_TO_BUILD="X86;AArch64;ARM;PowerPC;AMDGPU;BPF"
 	EXT="zst"
 	;;
 "aarch64")
-	TARGETS_TO_BUILD="X86;AArch64;PowerPC;AMDGPU;BPF"
+	TARGETS_TO_BUILD="X86;AArch64;ARM;PowerPC;AMDGPU;BPF"
 	EXT="xz"
 	;;
 *)
