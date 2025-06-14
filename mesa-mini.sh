@@ -84,6 +84,7 @@ sed -i -e 's/r300,//'  \
 	-e 's/svga,//' \
 	-e 's/softpipe,//' \
 	-e 's/valgrind=enabled/valgrind=disabled/' \
+	-e 's/video-codecs=.*/video-codecs=h264dec,h265dec,vc1dec/' \
 	-e 's/-g1/-g0/g' ./PKGBUILD
 
 cat ./PKGBUILD
