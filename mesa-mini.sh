@@ -51,9 +51,6 @@ pacman -S --noconfirm \
 	python-sphinx \
 	python-sphinx-hawkmoth
 
-sed -i -e 's|-Os|-Oz|' /etc/makepkg.conf
-cat /etc/makepkg.conf
-
 case "${ARCH}" in
 	"x86_64")
 		EXT="zst"
@@ -83,7 +80,6 @@ sed -i -e 's/r300,//'      \
 	-e 's/r600,//'     \
 	-e 's/svga,//'     \
 	-e 's/softpipe,//' \
-	-e 's/,d3d12//'    \
 	-e 's/valgrind=enabled/valgrind=disabled/' \
 	-e 's/-g1/-g0/g' ./PKGBUILD
 
