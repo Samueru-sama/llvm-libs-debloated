@@ -51,6 +51,9 @@ pacman -S --noconfirm \
 	python-sphinx \
 	python-sphinx-hawkmoth
 
+sed -i -e 's|-Os|-O2|' /etc/makepkg.conf
+cat /etc/makepkg.conf
+
 case "${ARCH}" in
 	"x86_64")
 		EXT="zst"
