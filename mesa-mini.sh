@@ -51,7 +51,7 @@ pacman -S --noconfirm \
 	python-sphinx \
 	python-sphinx-hawkmoth
 
-sed -i -e 's|-Os|-O2|' /etc/makepkg.conf
+sed -i -e 's|-Os|-Oz|' /etc/makepkg.conf
 cat /etc/makepkg.conf
 
 case "${ARCH}" in
@@ -79,12 +79,12 @@ esac
 sed -i -e "s/x86_64/${ARCH}/" ./PKGBUILD
 
 # debloat mesa
-sed -i -e 's/r300,//'  \
-	-e 's/r600,//' \
-	-e 's/svga,//' \
+sed -i -e 's/r300,//'      \
+	-e 's/r600,//'     \
+	-e 's/svga,//'     \
 	-e 's/softpipe,//' \
+	-e 's/,d3d12//'    \
 	-e 's/valgrind=enabled/valgrind=disabled/' \
-	-e 's/video-codecs=.*/video-codecs=h264dec,h265dec,vc1dec/' \
 	-e 's/-g1/-g0/g' ./PKGBUILD
 
 cat ./PKGBUILD
